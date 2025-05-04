@@ -1,0 +1,13 @@
+This folder should contain the following image files:
+
+1. hero-bg.jpg - A high-quality background image for the hero section (1920x1080px)
+2. profile.jpg - Your profile photo for the About section (600x600px)
+3. portfolio-1.jpg to portfolio-6.jpg - Images for your portfolio projects (800x600px)
+4. testimonial-1.jpg to testimonial-3.jpg - Profile photos for testimonials (200x200px)
+
+You can replace these with your own images or use stock photos from free sites like:
+- Unsplash (https://unsplash.com)
+- Pexels (https://pexels.com)
+- Pixabay (https://pixabay.com)
+
+Make sure to optimize your images for web to keep loading times fast. 

@@ -140,77 +140,43 @@ if (document.querySelector('.typed-text')) {
 
 /*
 ======================
-    Form Validation
+    Contact Form
 ======================
 */
 const contactForm = document.getElementById('contactForm');
+
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Simple form validation
-        let valid = true;
-        const name = document.getElementById('name');
-        const email = document.getElementById('email');
-        const subject = document.getElementById('subject');
-        const message = document.getElementById('message');
-        
-        if (!name.value.trim()) {
-            valid = false;
-            name.classList.add('is-invalid');
-        } else {
-            name.classList.remove('is-invalid');
-        }
-        
-        if (!email.value.trim() || !validateEmail(email.value)) {
-            valid = false;
-            email.classList.add('is-invalid');
-        } else {
-            email.classList.remove('is-invalid');
-        }
-        
-        if (!subject.value.trim()) {
-            valid = false;
-            subject.classList.add('is-invalid');
-        } else {
-            subject.classList.remove('is-invalid');
-        }
-        
-        if (!message.value.trim()) {
-            valid = false;
-            message.classList.add('is-invalid');
-        } else {
-            message.classList.remove('is-invalid');
-        }
-        
-        if (valid) {
-            // Here you would normally send the form data to your server
-            // For demo purposes, just show a success message
-            const formElements = contactForm.elements;
-            for (let i = 0; i < formElements.length; i++) {
-                if (formElements[i].type !== 'submit') {
-                    formElements[i].value = '';
-                }
-            }
-            
-            // Show success message
-            const successMessage = document.createElement('div');
-            successMessage.className = 'alert alert-success';
-            successMessage.textContent = 'Your message has been sent successfully!';
-            contactForm.prepend(successMessage);
-            
-            // Remove success message after 5 seconds
-            setTimeout(() => {
-                successMessage.remove();
-            }, 5000);
-        }
-    });
-}
+        // Get form data
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
 
-// Email validation function
-function validateEmail(email) {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
+        // Send email using EmailJS
+        emailjs.send(
+            "service_gej4ah4", // Replace with your EmailJS service ID
+            "template_rlfzra8", // Replace with your EmailJS template ID
+            {
+                from_name: name,
+                from_email: email,
+                subject: subject,
+                message: message,
+                to_email: "khanwahidulhaq@gmail.com" // Replace with your email address
+            }
+        ).then(
+            function(response) {
+                alert("Message sent successfully!");
+                contactForm.reset();
+            },
+            function(error) {
+                alert("Failed to send message. Please try again.");
+                console.error("Error:", error);
+            }
+        );
+    });
 }
 
 /*

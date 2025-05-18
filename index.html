@@ -12,6 +12,113 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+    background: #111;
+    color: #eee;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+}
+
+.navbar, .footer, footer {
+    background: #181818 !important;
+}
+
+.navbar .nav-link,
+.navbar .navbar-brand {
+    color: #ff1744 !important;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.navbar .nav-link.active,
+.navbar .nav-link:hover {
+    color: #fff !important;
+    background: #ff1744;
+    border-radius: 4px;
+}
+
+.section-title, .divider {
+    color: #ff1744 !important;
+    border-color: #ff1744 !important;
+}
+
+.btn-primary, .btn-outline-light {
+    background: #ff1744;
+    border: none;
+    color: #fff;
+    transition: background 0.3s;
+}
+.btn-primary:hover, .btn-outline-light:hover {
+    background: #fff;
+    color: #ff1744;
+}
+
+.hero {
+    background: linear-gradient(120deg, #111 80%, #ff1744 100%);
+    min-height: 100vh;
+    position: relative;
+}
+.hero .highlight {
+    color: #ff1744;
+    text-shadow: 0 0 8px #ff1744;
+}
+
+.service-card {
+    background: #181818;
+    border: 1px solid #222;
+    box-shadow: 0 0 16px #ff174433;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.service-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 0 32px #ff1744aa;
+    border-color: #ff1744;
+}
+.icon-box i {
+    color: #ff1744;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px #ff1744;
+}
+
+.portfolio-card {
+    background: #181818;
+    border: 1px solid #222;
+    transition: box-shadow 0.3s;
+}
+.portfolio-card:hover {
+    box-shadow: 0 0 32px #ff1744aa;
+    border-color: #ff1744;
+}
+.portfolio-overlay {
+    background: rgba(17, 17, 17, 0.95);
+    color: #ff1744;
+}
+
+footer {
+    background: #181818;
+    color: #ff1744;
+}
+
+.back-to-top {
+    background: #ff1744;
+    color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ff1744;
+    transition: background 0.3s;
+}
+.back-to-top:hover {
+    background: #fff;
+    color: #ff1744;
+}
+
+.service-card,
+.service-card h4,
+.service-card p {
+    color: #fff !important;
+}
+    </style>
 </head>
 <body>
     <!-- Navbar -->
@@ -55,7 +162,9 @@
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-lg-8 mx-auto text-center text-white">
-                    <h1 class="animated-heading" data-aos="fade-up">Hello, I'm <span class="highlight">Wahidulhaq Khan</span></h1>
+                    <h1 class="animated-heading" data-aos="fade-up">
+  <span id="typed"></span>
+</h1>
                     <p class="lead mb-5" data-aos="fade-up" data-aos-delay="200">Software Developer | Designer | Creative Thinker</p>
                     <div class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="400">
                         <a href="#portfolio" class="btn btn-primary me-3">View My Work</a>
@@ -80,7 +189,7 @@
                     </div>
                 </div>
                 <div class="col-md-7" data-aos="fade-left">
-                    <h3 class="mb-4">Software Developer</h3>
+                    <h3 class="mb-4" style="color: #fff;">Software Developer</h3>
                     <p class="lead">Crafting scalable backend systems and seamless frontend experiences for web and mobile — with over 5 years of full-stack expertise.</p>
                     <p>Full-stack developer with 5+ years of experience in Python, Java, and Dart. I specialize in backend development using Django, DRF, and FastAPI, with multi-tenant architecture, PostgreSQL, MongoDB, Redis, and RabbitMQ. On the frontend, I build responsive web and mobile apps using HTML, CSS, JavaScript, and Flutter. Skilled in Docker, CRON jobs, Linux scripting, and Git-based version control for efficient DevOps and team collaboration.
 
@@ -149,7 +258,7 @@
                             <i class="fas fa-server"></i>
                         </div>
                         <h4>Backend Development</h4>
-                        <p>Building robust server-side applications with Python,Django Rest Framework and databases.</p>
+                        <p>Building robust server-side applications with Python, Django Rest Framework and databases.</p>
                     </div>
                 </div>
                 
@@ -196,6 +305,43 @@
                         </div>
                         <h4>Website Maintenance</h4>
                         <p>Providing regular updates and maintenance to keep your website running smoothly.</p>
+                    </div>
+                </div>
+                <!-- Added Services -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-card">
+                        <div class="icon-box">
+                            <i class="fas fa-pen-nib"></i>
+                        </div>
+                        <h4>Content Writer</h4>
+                        <p>Crafting engaging and SEO-friendly content for blogs, websites, and marketing materials.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="700">
+                    <div class="service-card">
+                        <div class="icon-box">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h4>Content Creator</h4>
+                        <p>Producing creative multimedia content including graphics, videos, and social media posts.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="800">
+                    <div class="service-card">
+                        <div class="icon-box">
+                            <i class="fas fa-mobile"></i>
+                        </div>
+                        <h4>Mobile Application</h4>
+                        <p>Developing cross-platform mobile apps with Flutter and native technologies.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="900">
+                    <div class="service-card">
+                        <div class="icon-box">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h4>Cloud Computing</h4>
+                        <p>Deploying and managing scalable cloud solutions using AWS, Azure, and Google Cloud.</p>
                     </div>
                 </div>
             </div>
@@ -316,12 +462,12 @@
                             <div class="carousel-item active">
                                 <div class="testimonial-card" data-aos="fade-up">
                                     <div class="testimonial-img">
-                                        <img src="images/testimonial-1.jpg" alt="Client 1" class="img-fluid rounded-circle">
+                                        <img src="images/testimonial-indian-1.jpg" alt="Client 1" class="img-fluid rounded-circle">
                                     </div>
                                     <div class="testimonial-content">
-                                        <p>"Working with this developer was a fantastic experience. They delivered everything on time and exceeded our expectations in terms of design and functionality."</p>
-                                        <h4>John Smith</h4>
-                                        <p class="company">CEO, Tech Company</p>
+                                        <p>"Wahidulhaq delivered our project with exceptional quality and speed. His technical expertise and dedication are truly impressive. Highly recommended for any software development needs!"</p>
+                                        <h4>Rahul Sharma</h4>
+                                        <p class="company">CTO, Mumbai Tech Solutions</p>
                                         <div class="rating">
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
@@ -335,37 +481,56 @@
                             <div class="carousel-item">
                                 <div class="testimonial-card" data-aos="fade-up">
                                     <div class="testimonial-img">
-                                        <img src="images/testimonial-2.jpg" alt="Client 2" class="img-fluid rounded-circle">
+                                        <img src="images/testimonial-indian-2.jpg" alt="Client 2" class="img-fluid rounded-circle">
                                     </div>
                                     <div class="testimonial-content">
-                                        <p>"They have a deep understanding of web development and design principles. Our website has never looked better and our online sales have increased significantly."</p>
-                                        <h4>Sarah Johnson</h4>
-                                        <p class="company">Marketing Director, E-commerce Store</p>
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="testimonial-card" data-aos="fade-up">
-                                    <div class="testimonial-img">
-                                        <img src="images/testimonial-3.jpg" alt="Client 3" class="img-fluid rounded-circle">
-                                    </div>
-                                    <div class="testimonial-content">
-                                        <p>"Professional, responsive, and incredibly talented. They understood our needs perfectly and delivered a website that perfectly represents our brand."</p>
-                                        <h4>Michael Brown</h4>
-                                        <p class="company">Founder, Design Agency</p>
+                                        <p>"Very professional and always available for support. Wahidulhaq's cloud and mobile solutions helped our business grow rapidly. Thank you for your excellent service!"</p>
+                                        <h4>Priya Singh</h4>
+                                        <p class="company">Founder, Delhi Startups</p>
                                         <div class="rating">
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="testimonial-card" data-aos="fade-up">
+                                    <div class="testimonial-img">
+                                        <img src="images/testimonial-indian-3.jpg" alt="Client 3" class="img-fluid rounded-circle">
+                                    </div>
+                                    <div class="testimonial-content">
+                                        <p>"Great experience working with Wahidulhaq! He is creative, reliable, and always delivers on time. Our website and app look fantastic and work flawlessly."</p>
+                                        <h4>Ankit Verma</h4>
+                                        <p class="company">Product Manager, Bangalore Digital</p>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="testimonial-card" data-aos="fade-up">
+                                    <div class="testimonial-img">
+                                        <img src="images/testimonial-indian-4.jpg" alt="Client 4" class="img-fluid rounded-circle">
+                                    </div>
+                                    <div class="testimonial-content">
+                                        <p>"Wahidulhaq is a true professional. His attention to detail and commitment to client satisfaction set him apart. I highly recommend his services to anyone looking for quality work."</p>
+                                        <h4>Neha Patel</h4>
+                                        <p class="company">CEO, Ahmedabad Web Services</p>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -489,5 +654,57 @@
             emailjs.init("Pc0cnIqWGhpgRlwyT"); // Replace with your EmailJS public key
         })();
     </script>
+
+    <canvas id="matrix-bg" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;"></canvas>
+<script>
+  // Simple Matrix effect
+  const canvas = document.getElementById('matrix-bg');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  const letters = "01";
+  const fontSize = 16;
+  const columns = canvas.width / fontSize;
+  const drops = Array(Math.floor(columns)).fill(1);
+
+  function drawMatrix() {
+    ctx.fillStyle = "rgba(17,17,17,0.08)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = fontSize + "px Fira Mono";
+    ctx.fillStyle = "#ff1744";
+    for (let i = 0; i < drops.length; i++) {
+      const text = letters[Math.floor(Math.random() * letters.length)];
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      drops[i]++;
+    }
+  }
+  setInterval(drawMatrix, 50);
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    new Typed("#typed", {
+      strings: [
+        "Hello, I'm <span class='highlight'>Wahidulhaq Khan</span>",
+        "Software Developer | Designer | Creative Thinker",
+        "Welcome to my <span class='highlight'>Portfolio</span>"
+      ],
+      typeSpeed: 50,
+      backSpeed: 30,
+      backDelay: 1500,
+      loop: true,
+      smartBackspace: true,
+      showCursor: true,
+      cursorChar: '|'
+    });
+  });
+</script>
 </body>
 </html>

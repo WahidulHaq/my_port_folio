@@ -12,267 +12,223 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <!-- Blog specific CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        body {
+            background: #0a0f0d;
+            color: #e0e0e0;
+            font-family: 'Fira Mono', 'Consolas', monospace;
+        }
+        .navbar, .footer, footer {
+            background: #161b1a !important;
+        }
+        .navbar .nav-link,
+        .navbar .navbar-brand {
+            color: #39ff14 !important;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px #39ff14;
+        }
+        .navbar .nav-link.active,
+        .navbar .nav-link:hover {
+            color: #0a0f0d !important;
+            background: #39ff14;
+            border-radius: 4px;
+            text-shadow: none;
+        }
+        .section-title, .divider {
+            color: #00eaff !important;
+            border-color: #00eaff !important;
+            text-shadow: 0 0 8px #00eaff;
+        }
         .blog-header {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/blog-header.jpg');
+            background: linear-gradient(rgba(10,15,13,0.85), rgba(10,15,13,0.85)), url('images/blog-header.jpg');
             background-size: cover;
             background-position: center;
-            height: 50vh;
+            min-height: 35vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            margin-top: 71px;
+            margin-top: 70px;
         }
-        
+        .blog-header h1 {
+            color: #39ff14;
+            font-size: 3rem;
+            text-shadow: 0 0 12px #39ff14;
+        }
+        .blog-header p {
+            color: #e0e0e0;
+            font-size: 1.2rem;
+        }
         .blog-card {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: var(--transition);
-            margin-bottom: 30px;
-            background-color: #fff;
+            background: #161b1a;
+            border: 1px solid #222;
+            border-radius: 12px;
+            box-shadow: 0 0 16px #00eaff33;
+            margin-bottom: 32px;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        
         .blog-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 0 32px #39ff14aa;
+            border-color: #39ff14;
         }
-        
-        .blog-img {
-            position: relative;
-            overflow: hidden;
-        }
-        
         .blog-img img {
             width: 100%;
             height: 250px;
             object-fit: cover;
-            transition: var(--transition);
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
         }
-        
-        .blog-card:hover .blog-img img {
-            transform: scale(1.1);
-        }
-        
-        .blog-category {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 12px;
-            font-weight: 500;
-        }
-        
-        .blog-date {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: #fff;
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 12px;
-        }
-        
         .blog-content {
-            padding: 25px;
+            padding: 24px;
         }
-        
         .blog-content h3 {
+            color: #00eaff;
             font-size: 1.5rem;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
-        
         .blog-content p {
-            color: var(--gray-color);
-            margin-bottom: 20px;
+            color: #e0e0e0;
         }
-        
         .blog-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 15px;
-            border-top: 1px solid #eee;
+            padding-top: 12px;
+            border-top: 1px solid #222;
+            font-size: 0.95rem;
         }
-        
-        .blog-author {
-            display: flex;
-            align-items: center;
-        }
-        
         .blog-author img {
-            width: 35px;
-            height: 35px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
-            margin-right: 10px;
+            margin-right: 8px;
         }
-        
         .blog-author span {
-            font-size: 14px;
-            color: var(--gray-color);
+            color: #39ff14;
         }
-        
-        .blog-stats {
-            display: flex;
+        .blog-category {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            background: #00eaff;
+            color: #0a0f0d;
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 0 8px #00eaff88;
         }
-        
-        .blog-stats span {
-            margin-left: 15px;
-            font-size: 14px;
-            color: var(--gray-color);
+        .blog-date {
+            position: absolute;
+            bottom: 18px;
+            right: 18px;
+            background: rgba(0,0,0,0.7);
+            color: #fff;
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
         }
-        
-        .blog-stats i {
-            margin-right: 5px;
-            color: var(--primary-color);
+        .blog-img {
+            position: relative;
         }
-        
-        .blog-sidebar {
-            position: sticky;
-            top: 100px;
+        .pagination .page-link {
+            color: #00eaff;
+            background: #161b1a;
+            border: none;
+            border-radius: 50px;
+            margin: 0 4px;
         }
-        
+        .pagination .page-item.active .page-link,
+        .pagination .page-link:hover {
+            background: #00eaff;
+            color: #0a0f0d;
+        }
         .sidebar-box {
-            background-color: #fff;
+            background: #161b1a;
             border-radius: 10px;
-            padding: 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 22px;
+            margin-bottom: 28px;
+            box-shadow: 0 0 12px #00eaff22;
         }
-        
         .sidebar-box h4 {
-            font-size: 1.25rem;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
+            color: #39ff14;
+            border-bottom: 2px solid #00eaff;
+            display: inline-block;
+            margin-bottom: 16px;
+            font-size: 1.15rem;
+        }
+        .category-list a, .recent-post-info h6 a, .tag-cloud a {
+            color: #00eaff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .category-list a:hover, .recent-post-info h6 a:hover, .tag-cloud a:hover {
+            color: #39ff14;
+        }
+        .tag-cloud a {
+            background: #222;
+            color: #00eaff;
+            padding: 5px 14px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
             display: inline-block;
         }
-        
-        .category-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .category-list li {
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .category-list li:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-        
-        .category-list a {
-            color: var(--gray-color);
-            transition: var(--transition);
-            display: flex;
-            justify-content: space-between;
-        }
-        
-        .category-list a:hover {
-            color: var(--primary-color);
-        }
-        
-        .category-list span {
-            background-color: var(--primary-color);
-            color: #fff;
-            font-size: 12px;
-            padding: 2px 8px;
-            border-radius: 50px;
-        }
-        
-        .recent-post {
-            display: flex;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .recent-post:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-        
-        .recent-post img {
-            width: 80px;
-            height: 60px;
-            object-fit: cover;
-            border-radius: 5px;
-            margin-right: 15px;
-        }
-        
-        .recent-post-info h6 {
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
-        
-        .recent-post-info h6 a {
-            color: #333;
-            transition: var(--transition);
-        }
-        
-        .recent-post-info h6 a:hover {
-            color: var(--primary-color);
-        }
-        
-        .recent-post-info span {
-            font-size: 12px;
-            color: var(--gray-color);
-        }
-        
-        .tag-cloud {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        
-        .tag-cloud a {
-            background-color: #f8f9fa;
-            color: var(--gray-color);
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 13px;
-            margin-right: 10px;
-            margin-bottom: 10px;
-            transition: var(--transition);
-        }
-        
         .tag-cloud a:hover {
-            background-color: var(--primary-color);
-            color: #fff;
+            background: #00eaff;
+            color: #0a0f0d;
         }
-        
-        .pagination {
-            margin-top: 20px;
+        .newsletter-form .form-control {
+            background: #222;
+            color: #e0e0e0;
+            border: 1px solid #00eaff;
         }
-        
-        .page-link {
-            color: var(--primary-color);
+        .newsletter-form .btn {
+            background: #39ff14;
+            color: #0a0f0d;
             border: none;
-            padding: 10px 15px;
-            margin: 0 5px;
-            border-radius: 50px;
-            transition: var(--transition);
         }
-        
-        .page-item.active .page-link {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
+        .newsletter-form .btn:hover {
+            background: #00eaff;
+            color: #0a0f0d;
         }
-        
-        .page-link:hover {
-            background-color: var(--primary-color);
-            color: #fff;
+        .recent-post img {
+            width: 70px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-right: 12px;
+        }
+        .recent-post-info span {
+            color: #e0e0e0;
+            font-size: 0.9rem;
+        }
+        .footer {
+            background: #161b1a;
+            color: #39ff14;
+        }
+        .back-to-top {
+            background: #00eaff;
+            color: #0a0f0d;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00eaff;
+            transition: background 0.3s, color 0.3s;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .back-to-top:hover {
+            background: #39ff14;
+            color: #0a0f0d;
         }
     </style>
 </head>
@@ -299,7 +255,7 @@
                         <a class="nav-link" href="index.html#portfolio">Portfolio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="blog.html">Blog</a>
+                        <a class="nav-link active" href="blog.html">Blogs</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.html#testimonials">Testimonials</a>
@@ -314,7 +270,7 @@
 
     <!-- Blog Header -->
     <header class="blog-header">
-        <div class="container text-center text-white" data-aos="fade-up">
+        <div class="container text-center">
             <h1 class="animated-heading">Blog</h1>
             <p class="lead">Thoughts, Tutorials, and Web Development Insights</p>
         </div>
@@ -329,99 +285,69 @@
                     <!-- Blog Post 1 -->
                     <div class="blog-card" data-aos="fade-up">
                         <div class="blog-img">
-                            <img src="images/blog-1.jpg" alt="Blog Post 1">
-                            <div class="blog-category">Web Development</div>
-                            <div class="blog-date"><i class="far fa-calendar-alt"></i> April 20, 2023</div>
+                            <img src="images/blog-python.jpg" alt="Python Tips">
+                            <div class="blog-category">Programming</div>
+                            <div class="blog-date"><i class="far fa-calendar-alt"></i> May 2025</div>
                         </div>
                         <div class="blog-content">
-                            <h3><a href="#">The Future of Web Development: Trends to Watch in 2023</a></h3>
-                            <p>The web development landscape is constantly evolving with new technologies, frameworks, and methodologies. In this article, we explore the most significant trends that are shaping the future of web development in 2023 and beyond.</p>
-                            <a href="#" class="btn btn-primary btn-sm">Read More</a>
-                            <div class="blog-meta">
-                                <div class="blog-author">
-                                    <img src="images/author-1.jpg" alt="Author">
-                                    <span>By John Smith</span>
-                                </div>
-                                <div class="blog-stats">
-                                    <span><i class="far fa-eye"></i> 256</span>
-                                    <span><i class="far fa-comment"></i> 45</span>
-                                </div>
+                            <h3>10 Python Tips Every Developer Should Know</h3>
+                            <p>Boost your productivity and write cleaner code with these essential Python tricks and best practices. From list comprehensions to context managers, discover how to make your Python code more efficient and readable.</p>
+                        </div>
+                        <div class="blog-meta">
+                            <div class="blog-author">
+                                <img src="images/author-1.jpg" alt="Author">
+                                <span>By Wahidulhaq Khan</span>
+                            </div>
+                            <div>
+                                <span><i class="far fa-eye"></i> 256</span>
+                                <span><i class="far fa-comment"></i> 12</span>
                             </div>
                         </div>
                     </div>
-
                     <!-- Blog Post 2 -->
                     <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="blog-img">
-                            <img src="images/blog-2.jpg" alt="Blog Post 2">
-                            <div class="blog-category">UI/UX Design</div>
-                            <div class="blog-date"><i class="far fa-calendar-alt"></i> April 15, 2023</div>
+                            <img src="images/blog-django.jpg" alt="Django REST API">
+                            <div class="blog-category">Web Development</div>
+                            <div class="blog-date"><i class="far fa-calendar-alt"></i> April 2025</div>
                         </div>
                         <div class="blog-content">
-                            <h3><a href="#">10 UI/UX Design Principles Every Developer Should Know</a></h3>
-                            <p>While developers focus on code, understanding key UI/UX principles can dramatically improve the quality of your applications. Learn the essential design principles that will help you create more intuitive and engaging user interfaces.</p>
-                            <a href="#" class="btn btn-primary btn-sm">Read More</a>
-                            <div class="blog-meta">
-                                <div class="blog-author">
-                                    <img src="images/author-2.jpg" alt="Author">
-                                    <span>By Sarah Johnson</span>
-                                </div>
-                                <div class="blog-stats">
-                                    <span><i class="far fa-eye"></i> 324</span>
-                                    <span><i class="far fa-comment"></i> 28</span>
-                                </div>
+                            <h3>Building Secure REST APIs with Django</h3>
+                            <p>A step-by-step guide to creating robust and secure RESTful APIs using Django Rest Framework. Learn about authentication, permissions, and best practices for scalable API design.</p>
+                        </div>
+                        <div class="blog-meta">
+                            <div class="blog-author">
+                                <img src="images/author-2.jpg" alt="Author">
+                                <span>By Wahidulhaq Khan</span>
+                            </div>
+                            <div>
+                                <span><i class="far fa-eye"></i> 324</span>
+                                <span><i class="far fa-comment"></i> 18</span>
                             </div>
                         </div>
                     </div>
-
                     <!-- Blog Post 3 -->
                     <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="blog-img">
-                            <img src="images/blog-3.jpg" alt="Blog Post 3">
-                            <div class="blog-category">JavaScript</div>
-                            <div class="blog-date"><i class="far fa-calendar-alt"></i> April 8, 2023</div>
+                            <img src="images/blog-linux.jpg" alt="Linux Automation">
+                            <div class="blog-category">Linux</div>
+                            <div class="blog-date"><i class="far fa-calendar-alt"></i> March 2025</div>
                         </div>
                         <div class="blog-content">
-                            <h3><a href="#">Mastering Modern JavaScript: From ES6 to ES2023</a></h3>
-                            <p>JavaScript has evolved significantly over the years with ECMAScript updates adding powerful new features. This comprehensive guide walks you through the most important features from ES6 to the latest ES2023 that every JavaScript developer should know.</p>
-                            <a href="#" class="btn btn-primary btn-sm">Read More</a>
-                            <div class="blog-meta">
-                                <div class="blog-author">
-                                    <img src="images/author-3.jpg" alt="Author">
-                                    <span>By Michael Brown</span>
-                                </div>
-                                <div class="blog-stats">
-                                    <span><i class="far fa-eye"></i> 198</span>
-                                    <span><i class="far fa-comment"></i> 32</span>
-                                </div>
+                            <h3>Automate Everything: Linux Shell Scripting</h3>
+                            <p>Learn how to automate repetitive tasks and supercharge your workflow with powerful shell scripts. This post covers bash basics, cron jobs, and real-world automation examples.</p>
+                        </div>
+                        <div class="blog-meta">
+                            <div class="blog-author">
+                                <img src="images/author-3.jpg" alt="Author">
+                                <span>By Wahidulhaq Khan</span>
+                            </div>
+                            <div>
+                                <span><i class="far fa-eye"></i> 198</span>
+                                <span><i class="far fa-comment"></i> 9</span>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Blog Post 4 -->
-                    <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="blog-img">
-                            <img src="images/blog-4.jpg" alt="Blog Post 4">
-                            <div class="blog-category">Career</div>
-                            <div class="blog-date"><i class="far fa-calendar-alt"></i> April 1, 2023</div>
-                        </div>
-                        <div class="blog-content">
-                            <h3><a href="#">From Junior to Senior Developer: A Roadmap for Career Growth</a></h3>
-                            <p>Advancing from a junior to a senior developer requires more than just coding skills. This article outlines a comprehensive roadmap with key milestones, skills to develop, and mindset shifts that will help you progress in your software development career.</p>
-                            <a href="#" class="btn btn-primary btn-sm">Read More</a>
-                            <div class="blog-meta">
-                                <div class="blog-author">
-                                    <img src="images/author-4.jpg" alt="Author">
-                                    <span>By Emily Davis</span>
-                                </div>
-                                <div class="blog-stats">
-                                    <span><i class="far fa-eye"></i> 342</span>
-                                    <span><i class="far fa-comment"></i> 56</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- Pagination -->
                     <nav aria-label="Blog pagination" class="mt-5" data-aos="fade-up">
                         <ul class="pagination justify-content-center">
@@ -441,7 +367,6 @@
                         </ul>
                     </nav>
                 </div>
-
                 <!-- Sidebar -->
                 <div class="col-lg-4">
                     <div class="blog-sidebar">
@@ -456,68 +381,60 @@
                                 </div>
                             </form>
                         </div>
-
                         <!-- Categories -->
                         <div class="sidebar-box" data-aos="fade-up" data-aos-delay="100">
                             <h4>Categories</h4>
                             <ul class="category-list">
-                                <li><a href="#">Web Development <span>15</span></a></li>
-                                <li><a href="#">UI/UX Design <span>8</span></a></li>
-                                <li><a href="#">JavaScript <span>12</span></a></li>
-                                <li><a href="#">Career <span>6</span></a></li>
-                                <li><a href="#">Tutorials <span>10</span></a></li>
+                                <li><a href="#">Programming <span>12</span></a></li>
+                                <li><a href="#">Web Development <span>8</span></a></li>
+                                <li><a href="#">Linux <span>5</span></a></li>
+                                <li><a href="#">APIs <span>4</span></a></li>
+                                <li><a href="#">Tips <span>7</span></a></li>
                             </ul>
                         </div>
-
                         <!-- Recent Posts -->
                         <div class="sidebar-box" data-aos="fade-up" data-aos-delay="200">
                             <h4>Recent Posts</h4>
                             <div class="recent-post">
-                                <img src="images/blog-1.jpg" alt="Recent Post">
+                                <img src="images/blog-python.jpg" alt="Recent Post">
                                 <div class="recent-post-info">
-                                    <h6><a href="#">The Future of Web Development</a></h6>
-                                    <span><i class="far fa-calendar-alt"></i> April 20, 2023</span>
+                                    <h6><a href="#">10 Python Tips Every Developer Should Know</a></h6>
+                                    <span><i class="far fa-calendar-alt"></i> May 2025</span>
                                 </div>
                             </div>
                             <div class="recent-post">
-                                <img src="images/blog-2.jpg" alt="Recent Post">
+                                <img src="images/blog-django.jpg" alt="Recent Post">
                                 <div class="recent-post-info">
-                                    <h6><a href="#">10 UI/UX Design Principles</a></h6>
-                                    <span><i class="far fa-calendar-alt"></i> April 15, 2023</span>
+                                    <h6><a href="#">Building Secure REST APIs with Django</a></h6>
+                                    <span><i class="far fa-calendar-alt"></i> April 2025</span>
                                 </div>
                             </div>
                             <div class="recent-post">
-                                <img src="images/blog-3.jpg" alt="Recent Post">
+                                <img src="images/blog-linux.jpg" alt="Recent Post">
                                 <div class="recent-post-info">
-                                    <h6><a href="#">Mastering Modern JavaScript</a></h6>
-                                    <span><i class="far fa-calendar-alt"></i> April 8, 2023</span>
+                                    <h6><a href="#">Automate Everything: Linux Shell Scripting</a></h6>
+                                    <span><i class="far fa-calendar-alt"></i> March 2025</span>
                                 </div>
                             </div>
                         </div>
-
                         <!-- Tags Cloud -->
                         <div class="sidebar-box" data-aos="fade-up" data-aos-delay="300">
                             <h4>Tags</h4>
                             <div class="tag-cloud">
-                                <a href="#">HTML</a>
-                                <a href="#">CSS</a>
-                                <a href="#">JavaScript</a>
-                                <a href="#">React</a>
-                                <a href="#">Vue</a>
-                                <a href="#">Node.js</a>
-                                <a href="#">Angular</a>
-                                <a href="#">Design</a>
-                                <a href="#">UI/UX</a>
+                                <a href="#">Python</a>
+                                <a href="#">Django</a>
+                                <a href="#">Linux</a>
                                 <a href="#">API</a>
-                                <a href="#">Frontend</a>
-                                <a href="#">Backend</a>
+                                <a href="#">Shell</a>
+                                <a href="#">Tips</a>
+                                <a href="#">Automation</a>
+                                <a href="#">Web</a>
                             </div>
                         </div>
-
                         <!-- Newsletter -->
                         <div class="sidebar-box" data-aos="fade-up" data-aos-delay="400">
                             <h4>Newsletter</h4>
-                            <p>Subscribe to our newsletter to get the latest updates and news delivered directly to your inbox.</p>
+                            <p>Subscribe to get the latest programming tips and updates.</p>
                             <form action="#" class="newsletter-form mt-3">
                                 <div class="input-group">
                                     <input type="email" class="form-control" placeholder="Your Email">
@@ -532,12 +449,12 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-4 text-center text-white">
+    <footer class="py-4 text-center footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <p>&copy; 2023 Your Portfolio. All Rights Reserved.</p>
-                    <p>Designed with <i class="fas fa-heart text-danger"></i> by Your Name</p>
+                    <p>&copy; 2025 Wahidulhaq Khan. All Rights Reserved.</p>
+                    <p>Designed with <i class="fas fa-heart text-danger"></i> by Wahidulhaq Khan</p>
                 </div>
             </div>
         </div>
@@ -550,29 +467,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- AOS JS for animations -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- jQuery for additional functionality -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Custom JS -->
-    <script src="js/main.js"></script>
     <script>
         // Initialize AOS
         AOS.init({
             duration: 800,
             once: true
         });
-        
-        // Change navbar background on scroll
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('navbar-scroll');
-            } else {
-                navbar.classList.remove('navbar-scroll');
-            }
-        });
-        
-        // Invoke navbar scroll check on page load
-        window.dispatchEvent(new Event('scroll'));
+        // Back to top
+        document.querySelector('.back-to-top').onclick = function(e) {
+            e.preventDefault();
+            window.scrollTo({top:0, behavior:'smooth'});
+        };
     </script>
 </body>
-</html> 
+</html>

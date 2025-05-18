@@ -16,113 +16,217 @@
     <style>
         /* Hacker/Programmer Color Scheme */
 body {
-    background: #0a0f0d;
+    background: #0a192f;
     color: #e0e0e0;
     font-family: 'Fira Mono', 'Consolas', monospace;
 }
 
 .navbar, .footer, footer {
-    background: #161b1a !important;
+    background: #112240 !important;
+    box-shadow: 0 4px 24px #000a  !important;
 }
 
 .navbar .nav-link,
 .navbar .navbar-brand {
-    color: #39ff14 !important;
+    color: #00fff7 !important;
     font-weight: bold;
     letter-spacing: 1px;
-    text-shadow: 0 0 8px #39ff14;
+    text-shadow: 0 0 8px #00fff7;
+    transition: color 0.3s, text-shadow 0.3s;
 }
 
 .navbar .nav-link.active,
 .navbar .nav-link:hover {
-    color: #0a0f0d !important;
-    background: #39ff14;
-    border-radius: 4px;
-    text-shadow: none;
+    color: #a259ff !important;
+    text-shadow: 0 0 16px #a259ff;
+    background: transparent;
 }
 
 .section-title, .divider {
-    color: #00eaff !important;
-    border-color: #00eaff !important;
-    text-shadow: 0 0 8px #00eaff;
+    color: #a259ff !important;
+    border-color: #00fff7 !important;
+    text-shadow: 0 0 12px #00fff7;
+}
+.animated-heading {
+    background: linear-gradient(90deg, #00fff7, #a259ff, #00fff7);
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-move 2s linear infinite;
+    font-weight: bold;
+    /* Softer, more readable glow */
+    text-shadow: 0 0 4px #00fff7, 0 0 8px #a259ff;
+    filter: none; /* Ensure no blur */
+}
+@keyframes gradient-move {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+.section-title {
+    text-shadow: 0 0 24px #00fff7, 0 0 8px #a259ff;
 }
 
 .btn-primary, .btn-outline-light {
-    background: #39ff14;
+    background: linear-gradient(90deg, #00fff7 0%, #a259ff 100%);
     border: none;
-    color: #0a0f0d;
-    transition: box-shadow 0.3s, background 0.3s, color 0.3s;
-    box-shadow: 0 0 10px #39ff14;
+    color: #0a192f;
+    font-weight: bold;
+    box-shadow: 0 0 18px #00fff799, 0 0 8px #a259ff44;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
 }
 .btn-primary:hover, .btn-outline-light:hover {
-    background: #00eaff;
-    color: #0a0f0d;
-    box-shadow: 0 0 20px #00eaff;
+    background: linear-gradient(90deg, #a259ff 0%, #00fff7 100%);
+    color: #fff;
+    box-shadow: 0 0 32px #a259ffcc, 0 0 16px #00fff7cc;
+    transform: scale(1.05) rotate(-2deg);
 }
 
 .hero {
-    background: linear-gradient(120deg, #0a0f0d 80%, #00eaff 100%);
+    background: linear-gradient(120deg, #0a192f 80%, #a259ff 100%);
     min-height: 100vh;
     position: relative;
+    box-shadow: 0 0 80px #00fff744 inset;
 }
 .hero .highlight {
-    color: #39ff14;
-    text-shadow: 0 0 8px #39ff14;
+    color: #00fff7;
+    font-weight: bold;
+    /* Softer, more readable glow */
+    text-shadow: 0 0 4px #00fff7, 0 0 8px #a259ff;
+    filter: none; /* Ensure no blur */
+    transition: text-shadow 0.3s;
+}
+.hero .highlight:hover {
+    text-shadow: 0 0 8px #00fff7, 0 0 16px #a259ff;
 }
 
 .service-card {
-    background: #161b1a;
-    border: 1px solid #222;
-    box-shadow: 0 0 16px #00eaff33;
-    transition: transform 0.3s, box-shadow 0.3s;
+    background: #112240;
+    border: none;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px #00fff733, 0 2px 8px #000a;
+    transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+    position: relative;
+    overflow: hidden;
 }
 .service-card:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 0 32px #39ff14aa;
-    border-color: #39ff14;
+    transform: translateY(-12px) scale(1.04) rotate(-1deg);
+    box-shadow: 0 16px 48px #a259ff99, 0 4px 16px #00fff7cc;
+    border: 2px solid #00fff7;
+    z-index: 2;
 }
 .icon-box i {
-    color: #00eaff;
-    font-size: 2.5rem;
+    color: #a259ff;
+    font-size: 2.7rem;
     margin-bottom: 10px;
-    text-shadow: 0 0 10px #00eaff;
+    text-shadow: 0 0 16px #a259ff;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+.service-card:hover .icon-box i {
+    color: #00fff7;
+    text-shadow: 0 0 24px #00fff7;
 }
 
 .portfolio-card {
-    background: #161b1a;
-    border: 1px solid #222;
-    transition: box-shadow 0.3s;
+    background: #112240;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px #a259ff44, 0 2px 8px #00fff744;
+    transition: box-shadow 0.3s, transform 0.3s;
+    overflow: hidden;
 }
 .portfolio-card:hover {
-    box-shadow: 0 0 32px #39ff14aa;
-    border-color: #39ff14;
+    box-shadow: 0 12px 48px #00fff7cc, 0 4px 16px #a259ffcc;
+    transform: scale(1.03) rotate(1deg);
 }
 .portfolio-overlay {
-    background: rgba(10, 15, 13, 0.95);
-    color: #00eaff;
+    background: rgba(10, 25, 47, 0.97);
+    color: #00fff7;
+    border-radius: 0 0 16px 16px;
 }
 
 footer {
-    background: #161b1a;
-    color: #39ff14;
+    background: #112240;
+    color: #00fff7;
+    box-shadow: 0 -2px 24px #a259ff44;
 }
 
 .back-to-top {
-    background: #00eaff;
-    color: #0a0f0d;
+    background: linear-gradient(90deg, #00fff7 0%, #a259ff 100%);
+    color: #0a192f;
     border-radius: 50%;
-    box-shadow: 0 0 10px #00eaff;
-    transition: background 0.3s, color 0.3s;
+    box-shadow: 0 0 18px #00fff7, 0 0 8px #a259ff;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
 }
 .back-to-top:hover {
-    background: #39ff14;
-    color: #0a0f0d;
+    background: linear-gradient(90deg, #a259ff 0%, #00fff7 100%);
+    color: #fff;
+    box-shadow: 0 0 32px #a259ffcc, 0 0 16px #00fff7cc;
+}
+
+.about-img-container {
+    background: linear-gradient(135deg, #112240 60%, #a259ff 100%);
+    padding: 18px;
+    /* border-radius: 50%; */
+    box-shadow: 0 0 32px #00fff7aa, 0 0 0 8px #0a192f;
+    display: inline-block;
+    transition: box-shadow 0.4s, transform 0.4s;
+}
+.about-img-container:hover {
+    box-shadow: 0 0 48px #a259ffcc, 0 0 0 12px #112240;
+    transform: scale(1.05) rotate(-2deg);
+}
+.about-img-container img {
+    border-radius: 50%;
+    border: 4px solid #00fff7;
+    box-shadow: 0 0 16px #a259ff88;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    background: #0a192f;
 }
 
 .service-card,
 .service-card h4,
 .service-card p {
     color: #e0e0e0 !important;
+}
+
+.social-icon {
+    color: #a259ff;
+    margin-right: 12px;
+    font-size: 1.3rem;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+.social-icon:hover {
+    color: #00fff7;
+    text-shadow: 0 0 12px #00fff7;
+}
+
+.testimonial-card {
+    background: #112240;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px #a259ff44, 0 2px 8px #00fff744;
+    padding: 32px;
+    margin-bottom: 32px;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+.testimonial-card:hover {
+    box-shadow: 0 12px 48px #00fff7cc, 0 4px 16px #a259ffcc;
+    transform: scale(1.03) rotate(-1deg);
+}
+.testimonial-img img {
+    border: 3px solid #a259ff;
+    box-shadow: 0 0 16px #00fff7aa;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: drop-shadow(0 0 8px #00fff7);
 }
     </style>
 </head>
@@ -500,7 +604,7 @@ footer {
     </div>
 </section>
 
-    <!-- Testimonials Section -->
+    <!-- Testimonials Section
     <section id="testimonials" class="py-5 bg-light">
         <div class="container">
             <div class="row">
@@ -517,7 +621,7 @@ footer {
                             <div class="carousel-item active">
                                 <div class="testimonial-card" data-aos="fade-up">
                                     <div class="testimonial-img">
-                                        <img src="images/testimonial-indian-1.jpg" alt="Client 1" class="img-fluid rounded-circle">
+                                        <img src="images/testimonial-indian-1.jpg" alt="Rahul Sharma" class="img-fluid rounded-circle">
                                     </div>
                                     <div class="testimonial-content">
                                         <p>"Wahidulhaq delivered our project with exceptional quality and speed. His technical expertise and dedication are truly impressive. Highly recommended for any software development needs!"</p>
@@ -536,7 +640,7 @@ footer {
                             <div class="carousel-item">
                                 <div class="testimonial-card" data-aos="fade-up">
                                     <div class="testimonial-img">
-                                        <img src="images/testimonial-indian-2.jpg" alt="Client 2" class="img-fluid rounded-circle">
+                                        <img src="images/testimonial-indian-2.jpg" alt="Priya Singh" class="img-fluid rounded-circle">
                                     </div>
                                     <div class="testimonial-content">
                                         <p>"Very professional and always available for support. Wahidulhaq's cloud and mobile solutions helped our business grow rapidly. Thank you for your excellent service!"</p>
@@ -555,7 +659,7 @@ footer {
                             <div class="carousel-item">
                                 <div class="testimonial-card" data-aos="fade-up">
                                     <div class="testimonial-img">
-                                        <img src="images/testimonial-indian-3.jpg" alt="Client 3" class="img-fluid rounded-circle">
+                                        <img src="images/testimonial-indian-3.jpg" alt="Ankit Verma" class="img-fluid rounded-circle">
                                     </div>
                                     <div class="testimonial-content">
                                         <p>"Great experience working with Wahidulhaq! He is creative, reliable, and always delivers on time. Our website and app look fantastic and work flawlessly."</p>
@@ -574,7 +678,7 @@ footer {
                             <div class="carousel-item">
                                 <div class="testimonial-card" data-aos="fade-up">
                                     <div class="testimonial-img">
-                                        <img src="images/testimonial-indian-4.jpg" alt="Client 4" class="img-fluid rounded-circle">
+                                        <img src="images/testimonial-indian-4.jpg" alt="Neha Patel" class="img-fluid rounded-circle">
                                     </div>
                                     <div class="testimonial-content">
                                         <p>"Wahidulhaq is a true professional. His attention to detail and commitment to client satisfaction set him apart. I highly recommend his services to anyone looking for quality work."</p>
@@ -603,7 +707,7 @@ footer {
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Contact Section -->
     <section id="contact" class="py-5">
@@ -727,7 +831,7 @@ footer {
     ctx.fillStyle = "rgba(17,17,17,0.08)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.font = fontSize + "px Fira Mono";
-    ctx.fillStyle = "#ff1744";
+    ctx.fillStyle = "#a259ff";
     for (let i = 0; i < drops.length; i++) {
       const text = letters[Math.floor(Math.random() * letters.length)];
       ctx.fillText(text, i * fontSize, drops[i] * fontSize);
